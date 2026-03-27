@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Task 4</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            font-family: Arial;
+            background: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            padding-top: 50px;
+        }
+        .todo-container {
+            background: white;
+            padding: 20px;
+            width: 350px;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+        input {
+            width: 70%;
+            padding: 8px;
+        }
+        button {
+            padding: 8px;
+            background: #28a745;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+        li {
+            padding: 10px;
+            margin-top: 5px;
+            background: #eee;
+            display: flex;
+            justify-content: space-between;
+        }
+        .delete {
+            color: red;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+<div class="todo-container">
+    <h2>Todo List</h2>
+    <input type="text" id="taskInput">
+    <button onclick="addTask()">Add Task</button>
+    <ul id="taskList"></ul>
+</div>
+<script>
+    function addTask() {
+        const input = document.getElementById("taskInput");
+        const task = input.value.trim();
+        if (task === "") return;
+        const li = document.createElement("li");
+        li.textContent = task;
+        const span = document.createElement("span");
+        span.textContent = "×";
+        span.className = "delete";
+        span.onclick = () => li.remove();
+        li.appendChild(span);
+        document.getElementById("taskList").appendChild(li);
+        input.value = "";
+    }
+</script>
+</body>
+</html>

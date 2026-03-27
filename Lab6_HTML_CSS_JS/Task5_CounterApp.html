@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Task 5</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            font-family: Arial;
+            background: #f4f4f4;
+        }
+        .counter {
+            text-align: center;
+        }
+        h1 {
+            font-size: 50px;
+        }
+        button {
+            padding: 10px 15px;
+            margin: 5px;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        .inc { 
+            background: rgb(0, 45, 128); 
+            color: white; 
+        }
+        .dec { 
+            background: rgb(0, 45, 128); 
+            color: white; 
+        }
+        .reset { 
+            background: rgb(0, 45, 128); 
+            color: white; 
+        }
+    </style>
+</head>
+<body>
+
+<div class="counter">
+    <h2>Counter Application</h2>
+    <h1 id="count">0</h1>
+    <button class="inc" onclick="increment()">Increment</button>
+    <button class="dec" onclick="decrement()">Decrement</button>
+    <button class="reset" onclick="reset()">Reset</button>
+</div>
+<script>
+    let count = 0;
+    const display = document.getElementById("count");
+    function increment() {
+        count++;
+        display.textContent = count;
+    }
+    function decrement() {
+        count--;
+        display.textContent = count;
+    }
+    function reset() {
+        count = 0;
+        display.textContent = count;
+    }
+</script>
+</body>
+</html>

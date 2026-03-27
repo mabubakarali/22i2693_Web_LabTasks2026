@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Kanban Board</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="p-8 bg-gray-50">
+    <h1 class="text-2xl font-bold mb-4">Kanban Board</h1>
+    
+    <div class="mb-6 flex gap-2">
+        <input type="text" id="task-input" placeholder="Enter task" class="border p-2 rounded w-64">
+        <select id="priority" class="border p-2 rounded">
+            <option value="Low">Low</option>
+            <option value="Medium">Medium</option>
+            <option value="High">High</option>
+        </select>
+        <button onclick="addTask()" class="bg-blue-500 text-white px-4 py-2 rounded">Add Task</button>
+    </div>
+
+    <div class="flex gap-4 h-96">
+        <div class="flex-1 bg-gray-200 p-4 rounded column" id="todo" ondragover="allowDrop(event)" ondrop="drop(event)">
+            <h2 class="text-center font-bold mb-4">To-Do</h2>
+        </div>
+        <div class="flex-1 bg-gray-200 p-4 rounded column" id="inprogress" ondragover="allowDrop(event)" ondrop="drop(event)">
+            <h2 class="text-center font-bold mb-4">In Progress</h2>
+        </div>
+        <div class="flex-1 bg-gray-200 p-4 rounded column" id="done" ondragover="allowDrop(event)" ondrop="drop(event)">
+            <h2 class="text-center font-bold mb-4">Done</h2>
+        </div>
+    </div>
+
+    <script>
+        const colors = { Low: 'border-green-500', Medium: 'border-yellow-500', High: 'border-red-500' };
+
+        function loadTasks() {
+            const tasks = JSON.parse(localStorage.getItem('kanbanTasks')) || [];
+            tasks.forEach(task => createTaskElement(task.id, task.text, task.priority, task.status));
+        }
+
+        function saveTasks() {
+            const tasks = [];
+            document.querySelectorAll('.task').forEach(t => {
+                tasks.push({
+                    id: t.id,
+                    text: t.querySelector('span').innerText,
+                    priority: t.dataset.priority,
+                    status: t.parentElement.id
+                });
+            });
+            localStorage.setItem('kanbanTasks', JSON.stringify(tasks));
+        }
+
+        function addTask() {
+            const text = document.getElementById('task-input').value;
+            const priority = document.getElementById('priority').value;
+            if (!text) return;
+            const id = 'task-' + Date.now();
+            createTaskElement(id, text, priority, 'todo');
+            document.getElementById('task-input').value = '';
+            saveTasks();
+        }
+
+        function createTaskElement(id, text, priority, status) {
+            const task = document.createElement('div');
+            task.id = id;
+            task.className = `task bg-white p-2 mb-2 rounded shadow border-l-4 ${colors[priority]} flex justify-between cursor-move`;
+            task.draggable = true;
+            task.dataset.priority = priority;
+            task.ondragstart = drag;
+            
+            task.innerHTML = `<span>${text}</span> <button onclick="deleteTask(this)" class="text-red-500">&times;</button>`;
+            document.getElementById(status).appendChild(task);
+        }
+
+        function deleteTask(btn) {
+            btn.parentElement.remove();
+            saveTasks();
+        }
+
+        function allowDrop(ev) { ev.preventDefault(); }
+        function drag(ev) { ev.dataTransfer.setData("text", ev.target.id); }
+        function drop(ev) {
+            ev.preventDefault();
+            const data = ev.dataTransfer.getData("text");
+            let target = ev.target;
+            if (!target.classList.contains('column')) target = target.closest('.column');
+            if (target) {
+                target.appendChild(document.getElementById(data));
+                saveTasks();
+            }
+        }
+
+        window.onload = loadTasks;
+    </script>
+</body>
+</html>

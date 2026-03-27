@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Dynamic Image Gallery</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .fade-in { animation: fadeIn 0.3s ease-in-out; }
+        @keyframes fadeIn { from { opacity: 0; transform: scale(0.95); } to { opacity: 1; transform: scale(1); } }
+    </style>
+</head>
+<body class="p-8 bg-gray-50">
+    <h1 class="text-2xl font-bold mb-4">Dynamic Image Gallery</h1>
+    
+    <div class="mb-6 space-x-2" id="filter-buttons">
+        <button class="px-4 py-2 bg-gray-200 rounded filter-btn" data-category="All">All</button>
+        <button class="px-4 py-2 bg-gray-200 rounded filter-btn" data-category="Nature">Nature</button>
+        <button class="px-4 py-2 bg-gray-200 rounded filter-btn" data-category="Architecture">Architecture</button>
+        <button class="px-4 py-2 bg-gray-200 rounded filter-btn" data-category="Animals">Animals</button>
+    </div>
+
+    <div id="gallery" class="flex gap-4 flex-wrap"></div>
+
+    <div id="modal" class="hidden fixed inset-0 bg-black bg-opacity-80 flex justify-center items-center z-50">
+        <div class="bg-white p-4 rounded-lg max-w-2xl w-full fade-in relative">
+            <button id="close-modal" class="absolute top-2 right-4 text-2xl font-bold">&times;</button>
+            <img id="modal-img" src="" class="w-full h-auto rounded mb-4">
+            <h2 id="modal-title" class="text-xl font-bold"></h2>
+            <p id="modal-desc" class="text-gray-600"></p>
+        </div>
+    </div>
+
+    <script>
+        const images = [
+            { url: 'https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=400', title: 'Mountain', category: 'Nature', desc: 'A beautiful snowy mountain.' },
+            { url: 'https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?w=400', title: 'Bridge', category: 'Architecture', desc: 'The Golden Gate Bridge.' },
+            { url: 'https://images.unsplash.com/photo-1614027164847-1b28cfe1df60?w=400', title: 'Lion', category: 'Animals', desc: 'A fierce lion looking at the camera.' }
+        ];
+
+        const gallery = document.getElementById('gallery');
+        const modal = document.getElementById('modal');
+
+        function renderGallery(filter = 'All') {
+            gallery.innerHTML = '';
+            const filtered = filter === 'All' ? images : images.filter(img => img.category === filter);
+            
+            filtered.forEach(img => {
+                const imgContainer = document.createElement('div');
+                imgContainer.className = 'cursor-pointer transform transition hover:scale-105 fade-in';
+                imgContainer.innerHTML = `
+                    <img src="${img.url}" class="w-48 h-32 object-cover rounded-lg shadow-md" alt="${img.title}">
+                    <p class="mt-2 font-semibold text-center">${img.title}</p>
+                `;
+                imgContainer.addEventListener('click', () => openModal(img));
+                gallery.appendChild(imgContainer);
+            });
+        }
+
+        function openModal(img) {
+            document.getElementById('modal-img').src = img.url;
+            document.getElementById('modal-title').textContent = img.title;
+            document.getElementById('modal-desc').textContent = img.desc;
+            modal.classList.remove('hidden');
+        }
+
+        document.getElementById('close-modal').addEventListener('click', () => modal.classList.add('hidden'));
+        modal.addEventListener('click', (e) => { if (e.target === modal) modal.classList.add('hidden'); });
+
+        document.getElementById('filter-buttons').addEventListener('click', (e) => {
+            if (e.target.classList.contains('filter-btn')) {
+                document.querySelectorAll('.filter-btn').forEach(btn => btn.classList.replace('bg-blue-500', 'bg-gray-200') || btn.classList.remove('text-white'));
+                e.target.classList.replace('bg-gray-200', 'bg-blue-500');
+                e.target.classList.add('text-white');
+                renderGallery(e.target.dataset.category);
+            }
+        });
+
+        renderGallery();
+    </script>
+</body>
+</html>

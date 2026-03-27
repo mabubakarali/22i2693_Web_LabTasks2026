@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Smart Workflow Management Platform</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Tailwind CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Custom CSS -->
+    <style>
+        /* Smooth transitions */
+        .transition-smooth {
+            transition: all 0.3s ease-in-out;
+        }
+
+        /* Gradient background */
+        .hero-bg {
+            background: linear-gradient(135deg, #4f46e5, #9333ea);
+        }
+
+        /* Feature card hover */
+        .feature-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 30px rgba(0,0,0,0.1);
+        }
+
+        /* Footer link hover */
+        .footer-link:hover {
+            color: #6366f1;
+        }
+    </style>
+</head>
+
+<body class="font-sans text-gray-800">
+
+<!-- ================= HERO SECTION ================= -->
+<header class="hero-bg text-white">
+    <div class="container mx-auto px-6 py-20 flex flex-col lg:flex-row items-center justify-between">
+
+        <!-- Left Content -->
+        <div class="lg:w-1/2 text-center lg:text-left mb-12 lg:mb-0">
+            <h1 class="text-4xl md:text-5xl font-bold leading-tight mb-6">
+                Streamline Your Business with Smart Workflow Management
+            </h1>
+            <p class="text-lg mb-8 opacity-90">
+                Automate processes, improve collaboration, and boost productivity with our all-in-one smart workflow solution.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+                <a href="#" class="bg-white text-indigo-600 px-6 py-3 rounded-lg font-semibold transition-smooth hover:bg-gray-100">
+                    Get Started
+                </a>
+                <a href="#" class="border border-white px-6 py-3 rounded-lg font-semibold transition-smooth hover:bg-white hover:text-indigo-600">
+                    Learn More
+                </a>
+            </div>
+        </div>
+
+        <!-- Right Illustration -->
+        <div class="lg:w-1/2">
+            <img src="https://undraw.co/api/illustrations/processing.svg" alt="Workflow Illustration" class="w-full max-w-lg mx-auto">
+        </div>
+
+    </div>
+</header>
+
+<!-- ================= FEATURES SECTION ================= -->
+<main>
+
+<section class="py-20 bg-gray-50">
+    <div class="container mx-auto px-6 text-center mb-16">
+        <h2 class="text-3xl font-bold mb-4">Powerful Features</h2>
+        <p class="text-gray-600 max-w-2xl mx-auto">
+            Everything you need to optimize operations and scale your team efficiently.
+        </p>
+    </div>
+
+    <div class="container mx-auto px-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+
+        <!-- Feature Card -->
+        <div class="bg-white p-8 rounded-xl shadow-md feature-card transition-smooth">
+            <svg class="w-12 h-12 text-indigo-600 mb-4" fill="none" stroke="currentColor" stroke-width="2"
+                viewBox="0 0 24 24">
+                <path d="M9 17v-6h6v6M9 7h6"></path>
+            </svg>
+            <h3 class="text-xl font-semibold mb-2">Task Automation</h3>
+            <p class="text-gray-600">Automate repetitive tasks to save time and reduce manual errors.</p>
+        </div>
+
+        <div class="bg-white p-8 rounded-xl shadow-md feature-card transition-smooth">
+            <svg class="w-12 h-12 text-indigo-600 mb-4" fill="none" stroke="currentColor" stroke-width="2"
+                viewBox="0 0 24 24">
+                <circle cx="12" cy="12" r="10"></circle>
+            </svg>
+            <h3 class="text-xl font-semibold mb-2">Real-Time Collaboration</h3>
+            <p class="text-gray-600">Work seamlessly with your team from anywhere in the world.</p>
+        </div>
+
+        <div class="bg-white p-8 rounded-xl shadow-md feature-card transition-smooth">
+            <svg class="w-12 h-12 text-indigo-600 mb-4" fill="none" stroke="currentColor" stroke-width="2"
+                viewBox="0 0 24 24">
+                <path d="M3 3h18v18H3z"></path>
+            </svg>
+            <h3 class="text-xl font-semibold mb-2">Custom Dashboards</h3>
+            <p class="text-gray-600">Track performance metrics with personalized dashboards.</p>
+        </div>
+
+        <div class="bg-white p-8 rounded-xl shadow-md feature-card transition-smooth">
+            <svg class="w-12 h-12 text-indigo-600 mb-4" fill="none" stroke="currentColor" stroke-width="2"
+                viewBox="0 0 24 24">
+                <path d="M12 6v6l4 2"></path>
+            </svg>
+            <h3 class="text-xl font-semibold mb-2">Time Tracking</h3>
+            <p class="text-gray-600">Monitor productivity and manage deadlines effectively.</p>
+        </div>
+
+        <div class="bg-white p-8 rounded-xl shadow-md feature-card transition-smooth">
+            <svg class="w-12 h-12 text-indigo-600 mb-4" fill="none" stroke="currentColor" stroke-width="2"
+                viewBox="0 0 24 24">
+                <path d="M4 4h16v16H4z"></path>
+            </svg>
+            <h3 class="text-xl font-semibold mb-2">Secure Data</h3>
+            <p class="text-gray-600">Enterprise-grade security to protect your business data.</p>
+        </div>
+
+        <div class="bg-white p-8 rounded-xl shadow-md feature-card transition-smooth">
+            <svg class="w-12 h-12 text-indigo-600 mb-4" fill="none" stroke="currentColor" stroke-width="2"
+                viewBox="0 0 24 24">
+                <path d="M12 2l7 7-7 7-7-7z"></path>
+            </svg>
+            <h3 class="text-xl font-semibold mb-2">Smart Analytics</h3>
+            <p class="text-gray-600">Make data-driven decisions with advanced reporting tools.</p>
+        </div>
+
+    </div>
+</section>
+
+<!-- ================= STATISTICS SECTION ================= -->
+<section class="py-20 bg-indigo-600 text-white">
+    <div class="container mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+        <div>
+            <h3 class="text-5xl font-bold">10K+</h3>
+            <p class="mt-2 text-lg">Active Users</p>
+        </div>
+        <div>
+            <h3 class="text-5xl font-bold">500+</h3>
+            <p class="mt-2 text-lg">Companies</p>
+        </div>
+        <div>
+            <h3 class="text-5xl font-bold">99.9%</h3>
+            <p class="mt-2 text-lg">Uptime</p>
+        </div>
+    </div>
+</section>
+
+<!-- ================= TESTIMONIALS ================= -->
+<section class="py-20 bg-gray-50">
+    <div class="container mx-auto px-6 text-center mb-16">
+        <h2 class="text-3xl font-bold mb-4">What Our Clients Say</h2>
+    </div>
+
+    <div class="container mx-auto px-6 grid grid-cols-1 md:grid-cols-2 gap-8">
+
+        <div class="bg-white p-8 rounded-xl shadow-md">
+            <img src="https://randomuser.me/api/portraits/men/32.jpg" class="w-16 h-16 rounded-full mx-auto mb-4" alt="">
+            <p class="text-gray-600 mb-4">
+                “This platform completely transformed our workflow and increased productivity dramatically.”
+            </p>
+            <h4 class="font-semibold">Ali Khan</h4>
+            <p class="text-sm text-gray-500">Project Manager</p>
+        </div>
+
+        <div class="bg-white p-8 rounded-xl shadow-md">
+            <img src="https://randomuser.me/api/portraits/women/44.jpg" class="w-16 h-16 rounded-full mx-auto mb-4" alt="">
+            <p class="text-gray-600 mb-4">
+                “The automation tools saved us countless hours every week. Highly recommended!”
+            </p>
+            <h4 class="font-semibold">Sara Ahmed</h4>
+            <p class="text-sm text-gray-500">Operations Head</p>
+        </div>
+
+    </div>
+</section>
+
+</main>
+
+<!-- ================= FOOTER ================= -->
+<footer class="bg-gray-900 text-gray-300 py-16">
+    <div class="container mx-auto px-6 grid grid-cols-1 md:grid-cols-4 gap-8">
+
+        <div>
+            <h3 class="text-xl font-bold text-white mb-4">Smart Workflow</h3>
+            <p class="text-sm">Efficiently manage your business operations with intelligent automation.</p>
+        </div>
+
+        <div>
+            <h4 class="font-semibold mb-4 text-white">Company</h4>
+            <ul class="space-y-2">
+                <li><a href="#" class="footer-link transition-smooth">About</a></li>
+                <li><a href="#" class="footer-link transition-smooth">Careers</a></li>
+                <li><a href="#" class="footer-link transition-smooth">Blog</a></li>
+            </ul>
+        </div>
+
+        <div>
+            <h4 class="font-semibold mb-4 text-white">Support</h4>
+            <ul class="space-y-2">
+                <li><a href="#" class="footer-link transition-smooth">Help Center</a></li>
+                <li><a href="#" class="footer-link transition-smooth">Privacy Policy</a></li>
+                <li><a href="#" class="footer-link transition-smooth">Terms</a></li>
+            </ul>
+        </div>
+
+        <div>
+            <h4 class="font-semibold mb-4 text-white">Contact</h4>
+            <p>Email: support@smartworkflow.com</p>
+            <div class="flex space-x-4 mt-4">
+                <svg class="w-6 h-6 hover:text-indigo-500 transition-smooth" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M22 12A10 10 0 1 0 2 12"></path>
+                </svg>
+                <svg class="w-6 h-6 hover:text-indigo-500 transition-smooth" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M12 2A10 10 0 1 0 12 22"></path>
+                </svg>
+                <svg class="w-6 h-6 hover:text-indigo-500 transition-smooth" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M4 4h16v16H4z"></path>
+                </svg>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="text-center text-sm text-gray-500 mt-12">
+        © 2026 Smart Workflow Management Platform. All rights reserved.
+    </div>
+</footer>
+
+</body>
+</html>

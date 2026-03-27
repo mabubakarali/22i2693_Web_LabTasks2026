@@ -1,0 +1,193 @@
+body { 
+    font-family: Arial, sans-serif; 
+    margin: 0; 
+    padding: 0; 
+    box-sizing: border-box; 
+}
+a { 
+    text-decoration: none; 
+    color: white; 
+}
+h2, h3, p { 
+    margin: 5px 0; 
+}
+.btn { 
+    background: #28a745; 
+    color: white; 
+    border: none; 
+    padding: 10px 15px; 
+    cursor: pointer; 
+    border-radius: 5px; 
+}
+.btn:hover { 
+    background: #218838; 
+}
+.nav-container { 
+    text-align: center; 
+    margin-top: 50px; 
+}
+.nav-btn { 
+    display: inline-block; 
+    background: #007bff; 
+    color: white; 
+    padding: 15px 25px; 
+    margin: 10px; 
+    border-radius: 5px; 
+}
+.nav-btn:hover { 
+    background: #0056b3; 
+}
+/* --- Task 1: Profile Card --- */
+.card-container {
+    width: 300px; 
+    margin: 50px auto; 
+    padding: 20px; 
+    text-align: center;
+    border: 1px solid #ddd; 
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    background-color: #f9f9f9; 
+    color: #333;
+}
+.profile-img { 
+    width: 100px; 
+    height: 100px; 
+    border-radius: 50%; 
+    object-fit: cover; 
+}
+/* --- Task 2: CSS Grid Layout --- */
+.grid-layout {
+    display: grid; 
+    height: 100vh;
+    grid-template-columns: 200px 1fr;
+    grid-template-rows: 60px 1fr 40px;
+}
+.grid-header { 
+    grid-column: 1 / -1; 
+    background: #09365c; 
+    padding: 10px; 
+}
+.grid-sidebar { 
+    background: #b14a05; 
+    padding: 10px; 
+}
+.grid-main { 
+    background: #6c6e7c; 
+    padding: 10px; 
+}
+.grid-footer { 
+    grid-column: 1 / -1; 
+    background: #703e47; 
+    padding: 10px; 
+    text-align: center; 
+}
+/* --- Task 3: Flexbox --- */
+.flex-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #333;
+    padding: 15px;
+}
+.flex-nav a {
+    color: white;
+    padding: 10px;
+    transition: 0.3s;
+}
+.flex-nav a:hover {
+    color: #ffc107;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 4px;
+}
+.flex-content {
+    display: flex;
+    gap: 20px;
+    padding: 20px;
+    flex-wrap: wrap;
+}
+.flex-card {
+    flex: 1;
+    border: 1px solid #ccc;
+    padding: 20px;
+    background: #fff;
+    min-width: 200px;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+.flex-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+    border-color: #28a745;
+}
+/* --- Task 4: Positioning --- */
+.sticky-nav { 
+    position: sticky; 
+    top: 0; 
+    background: #000000; 
+    color: white; 
+    padding: 15px; 
+    z-index: 1000; 
+}
+.rel-container {
+    position: relative; 
+    height: 200px; 
+    background: #e9ecef; 
+    margin: 20px; 
+    border: 2px dashed #000000;
+}
+.abs-box {
+    position: absolute; 
+    top: 20px; 
+    right: 20px;
+    background: #070102; 
+    color: white; 
+    padding: 10px;
+}
+.fixed-box {
+    position: fixed; 
+    bottom: 20px; 
+    right: 20px;
+    background: #050301; 
+    color: white; 
+    padding: 15px; 
+    border-radius: 5px;
+}
+/* --- Task 5: Floats --- */
+.float-left { 
+    float: left; 
+    width: 60%; 
+    background: #e2e6ea; 
+    padding: 10px; 
+    box-sizing: border-box; 
+}
+.float-right { 
+    float: right; 
+    width: 40%; 
+    background: #fff3cd; 
+    padding: 10px; 
+    box-sizing: border-box; 
+}
+.clearfix::after { 
+    content: ""; 
+    display: table; 
+    clear: both; 
+}
+.float-item { 
+    border: 1px solid #ccc; 
+    margin-bottom: 10px; 
+    padding: 5px; 
+    background: white; 
+}
+/* --- Task 6: Mini Webpage --- */
+.mini-badge { 
+    position: absolute; 
+    top: -5px; 
+    right: -5px; 
+    background: red; 
+    color: white; 
+    font-size: 10px; 
+    padding: 2px 5px; 
+    border-radius: 50%; 
+}
+.card-wrapper { 
+    position: relative; 
+    display: inline-block; 
+}

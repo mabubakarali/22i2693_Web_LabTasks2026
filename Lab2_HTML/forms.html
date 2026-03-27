@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Forms - Student Portal</title>
+</head>
+<body>
+<header>
+<h1>Course Search & Student Feedback</h1>
+<p>GET and POST methods</p>
+</header>
+<hr>
+<h2>🔍 Course Search Form (GET Method)</h2>
+<form method="GET" action="search-results.html">
+<label>Course Name:
+<input type="text" name="course">
+</label><br><br>
+<label>Department:
+<select name="department">
+<option>Software Engineering</option>
+<option>Computer Science</option>
+<option>Cyber Security</option>
+</select>
+</label><br><br>
+<button type="submit">Search Courses</button>
+</form>
+<p>
+<em>After submission, observe the query string in the URL.</em>
+</p>
+<hr>
+<h2>📝 Student Feedback Form (POST Method)</h2>
+<form method="POST" action="feedback-received.html">
+<label>Student Name:
+<input type="text" name="student">
+</label><br><br>
+
+<label>📧 Email:
+<input type="email" name="email">
+</label><br><br>
+<label>Course:
+<select name="course">
+<option>Web Engineering</option>
+<option>SPM</option>
+<option>Entreprenuership</option>
+<option>Operating Systems</option>
+</select>
+</label><br><br>
+<p>⭐ Rating:</p>
+<input type="radio" name="rating" value="1">1
+<input type="radio" name="rating" value="2">2
+<input type="radio" name="rating" value="3">3
+<input type="radio" name="rating" value="4">4
+<input type="radio" name="rating" value="5">5
+<br><br>
+<label> ✏️ Comments:</label><br>
+<textarea name="comments" rows="5" cols="40"></textarea><br><br>
+<button type="submit">Submit Feedback</button>
+</form>
+<footer>
+<p>Email us at: feedback@university.edu</p>
+<p>2026 Student Portal</p>
+</footer>
+</body>
+</html>

@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Task 1</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        * {
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+        body {
+            background: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        .form-container {
+            background: white;
+            padding: 25px;
+            width: 100%;
+            max-width: 400px;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+        h2 {
+            text-align: center;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        input {
+            width: 100%;
+            padding: 10px;
+            border: 2px solid #ccc;
+            border-radius: 5px;
+            outline: none;
+            transition: 0.3s;
+        }
+        input.valid {
+            border-color: green;
+        }
+        input.invalid {
+            border-color: red;
+        }
+        small {
+            color: red;
+            font-size: 12px;
+        }
+        button {
+            width: 100%;
+            padding: 10px;
+            background: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        button:disabled {
+            background: gray;
+            cursor: not-allowed;
+        }
+    </style>
+</head>
+<body>
+<div class="form-container">
+    <h2>Registration Form</h2>
+    <div class="form-group">
+        <input type="text" id="name" placeholder="Name">
+        <small id="nameError"></small>
+    </div>
+    <div class="form-group">
+        <input type="text" id="email" placeholder="Email">
+        <small id="emailError"></small>
+    </div>
+    <div class="form-group">
+        <input type="password" id="password" placeholder="Password">
+        <small id="passError"></small>
+    </div>
+    <div class="form-group">
+        <input type="password" id="confirm" placeholder="Confirm Password">
+        <small id="confirmError"></small>
+    </div>
+    <div class="form-group">
+        <input type="number" id="age" placeholder="Age">
+        <small id="ageError"></small>
+    </div>
+    <button id="submitBtn" disabled>Submit</button>
+</div>
+<script>
+    const nameInput = document.getElementById("name");
+    const emailInput = document.getElementById("email");
+    const passInput = document.getElementById("password");
+    const confirmInput = document.getElementById("confirm");
+    const ageInput = document.getElementById("age");
+    const submitBtn = document.getElementById("submitBtn");
+    function validate() {
+        let valid = true;
+        // Name
+        if (nameInput.value.length < 3) {
+            setInvalid(nameInput, "Minimum 3 characters", "nameError");
+            valid = false;
+        } else setValid(nameInput, "nameError");
+        // Email
+        if (!emailInput.value.includes("@") || !emailInput.value.includes(".")) {
+            setInvalid(emailInput, "Invalid email format", "emailError");
+            valid = false;
+        } else setValid(emailInput, "emailError");
+        // Password
+        if (passInput.value.length < 6 || !/\d/.test(passInput.value)) {
+            setInvalid(passInput, "Min 6 chars + 1 number", "passError");
+            valid = false;
+        } else setValid(passInput, "passError");
+        // Confirm
+        if (confirmInput.value !== passInput.value || confirmInput.value === "") {
+            setInvalid(confirmInput, "Passwords must match", "confirmError");
+            valid = false;
+        } else setValid(confirmInput, "confirmError");
+        // Age
+        if (ageInput.value < 18 || ageInput.value > 60) {
+            setInvalid(ageInput, "Age must be 18–60", "ageError");
+            valid = false;
+        } else setValid(ageInput, "ageError");
+        submitBtn.disabled = !valid;
+    }
+    function setInvalid(input, message, errorId) {
+        input.classList.add("invalid");
+        input.classList.remove("valid");
+        document.getElementById(errorId).textContent = message;
+    }
+    function setValid(input, errorId) {
+        input.classList.add("valid");
+        input.classList.remove("invalid");
+        document.getElementById(errorId).textContent = "";
+    }
+    document.querySelectorAll("input").forEach(input => {
+        input.addEventListener("input", validate);
+    });
+</script>
+</body>
+</html>
