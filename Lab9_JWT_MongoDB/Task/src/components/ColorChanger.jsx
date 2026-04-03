@@ -10,22 +10,18 @@ export default function ColorChanger() {
         div.style.backgroundColor = input.value;
         input.value = ''; 
     };
-
     const handleReactColorChange = () => {
         setReactColor(reactInput);
         setReactInput(''); 
     };
-
     return (
         <div style={{ padding: '10px', display: 'flex', gap: '40px', flexDirection: 'column' }}>
-            
             <div>
                 <h3>1. HTML DOM Approach</h3>
                 <div id="htmlColorBox" style={{ width: '150px', height: '150px', backgroundColor: 'lightgray', marginBottom: '10px', border: '1px solid black' }}></div>
                 <input id="htmlColorInput" type="text" placeholder="Enter color (e.g., red)" style={{ marginRight: '10px', padding: '5px' }} />
                 <button onClick={handleHtmlColorChange} style={{ padding: '5px 10px' }}>Change Color (HTML DOM)</button>
             </div>
-
             <div>
                 <h3>2. React DOM Approach</h3>
                 <div style={{ width: '150px', height: '150px', backgroundColor: reactColor, marginBottom: '10px', border: '1px solid black' }}></div>
@@ -38,7 +34,6 @@ export default function ColorChanger() {
                 />
                 <button onClick={handleReactColorChange} style={{ padding: '5px 10px' }}>Change Color (React DOM)</button>
             </div>
-
             <div style={{ marginTop: '20px' }}>
                 <h3>Comparison: HTML DOM vs React DOM</h3>
                 <table border="1" cellPadding="10" style={{ borderCollapse: 'collapse', width: '100%' }}>
